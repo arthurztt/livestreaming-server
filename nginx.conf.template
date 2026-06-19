@@ -12,13 +12,13 @@ rtmp {
             live on;
             record off;
 
-
-            push $YOUTUBE_STEAMING_URL/$YOUTUBE_STEAMING_KEY;
+            
             push $TWITCH_STEAMING_URL/$TWITCH_STEAMING_KEY;
                     
             hls on;
             hls_path /hls/live;
             hls_fragment 3;
+
         }
     }
 }
@@ -32,6 +32,8 @@ http {
                 video/mp2t ts;
             }
             root /hls;
+            add_header Cache-Control no-cache;
+            add_header Access-Control-Allow-Origin *;
         }
     }
 }
