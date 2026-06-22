@@ -13,7 +13,8 @@ rtmp {
             record off;
 
             
-            push $TWITCH_STEAMING_URL/$TWITCH_STEAMING_KEY;
+            push $TWITCH_STREAMING_URL/$TWITCH_STREAMING_KEY;
+            push $YOUTUBE_STREAMING_URL/$YOUTUBE_STREAMING_KEY;
                     
             hls on;
             hls_path /hls/live;
@@ -26,7 +27,7 @@ rtmp {
 http {
     server {
         listen 8081;
-        location /live {
+        location live {
             types {
                 application/vnd.apple.mpegurl m3u8;
                 video/mp2t ts;
